@@ -145,12 +145,20 @@ const simplePrint = () => console.log('simplePrint');
 // command: add, substract, divide, multiply, remainder
 
 
-function calculate(...args) {
-    if (command === add) {
-        console.log(`add: ${a + b}`);
+function calculate(command, a, b) {
+    switch(command) {
+        case 'add':
+            return a + b;
+        case 'substract':
+            return a - b;
+        case 'divide':
+            return a / b;
+        case 'multiply':
+            return a * b;
+        case 'remainder':
+            return a % b;
+        default:
+            throw Error('unKnown command');
     }
 }
-calculate(add, 1, 3);
-const add  = function (a, b) {
-    return a + b;
-}
+console.log(calculate('add', 2, 3));  
