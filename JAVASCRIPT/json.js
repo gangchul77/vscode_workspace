@@ -1,3 +1,5 @@
+'use strict';
+
 // JSON  ( JavaScript Obejct Notation)
 
 
@@ -57,7 +59,7 @@ const rabbit = {
 // json_rabbit = JSON.stringify(rabbit,['name', 'color']);
 // console.log(json_rabbit);
 
-json_rabbit = JSON.stringify(rabbit, (key, value) => {
+const json_rabbit = JSON.stringify(rabbit, (key, value) => {
     console.log(`key: ${key}, value: ${value}`);
     return key === 'name' ? 'steel' : value;
 });
@@ -66,8 +68,8 @@ console.log(json_rabbit);
 console.clear();
 // 2. JSON to Object
 // parse(json)
-json_rabbit = JSON.stringify(rabbit);
-console.log(json_rabbit);
+json_rabbit2 = JSON.stringify(rabbit);
+console.log(json_rabbit2);
 const obj_rabbit = JSON.parse(json_rabbit, (key, value) => {
     console.log(`key: ${key}, value: ${value}`);
     return key === 'birthDate' ? new Date(value) : value;
