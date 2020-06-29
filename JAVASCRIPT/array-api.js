@@ -50,12 +50,6 @@ const students = [
 
 // Q5. find a student with the score 90 
 {
-    // for(let i = 0; i < students.length; i++){
-    //     if(students[i].score ===90){
-    //         console.log(students[i].name, students[i].score);
-    //     }
-    // }
-
     const result_ninety = students.find((student) => student.score === 90);
     console.log(result_ninety);
 }
@@ -64,4 +58,66 @@ const students = [
 {
    const result_enrolleds = students.filter((student) => student.enrolled);
    console.log(result_enrolleds);
+}
+
+// Q7. make an array of containing only the students' scores result should be: [45, 80, 90, 66, 88]
+{
+    const student_score = students.map((student) => student.score );
+    const student_doubleScore = students.map((student) => student.score * 2 );
+    console.log(student_score);
+    console.log(student_doubleScore);
+}
+
+// Q8. check if there is a student with the score lower than 50
+{   
+
+    console.clear();
+    const student_score_lowerFifty = students.some((student) => student.score < 50 );
+    console.log(student_score_lowerFifty);
+
+    
+    const all_student_score_lowerFifty = students.every((student) => student.score < 50 );
+    const all_student_score_lowerFifty2 = !students.every((student) => student.score >= 50 );
+    console.log(all_student_score_lowerFifty);
+    console.log(all_student_score_lowerFifty2);
+    
+}
+
+// Q9. compute student's average score
+{   
+    console.clear();
+    // const student_average_score2 = students.reduceRight((prev, curr) => {
+    //     console.log('-------------------------------------------');
+    //     console.log(prev);
+    //     console.log(curr);
+    //     return prev + curr.score;
+    // }, 0);
+    // console.log(student_average_score2);
+
+    const student_average_score = students.reduce((prev, curr) => prev + curr.score, 0);
+    console.log(student_average_score / students.length);
+}
+
+// Q10. make a string containing all the scores
+// result should be: '45, 80, 90, 66, 88'
+{
+    const student_score_order_string = students
+    .map((student) => student.score)
+    // .filter(score => score >= 50)
+    .join();
+    console.log(student_score_order_string);
+}
+
+// Bonus! do Q10 sorted in ascending order
+// result should be: '45, 66, 80, 88, 90'
+{
+    {
+        const student_score_order_sorting = students
+        .map((student) => student.score)
+        // .sort((a,b) => a - b)
+        // .sort()
+        .sort((a, b) => b - a)
+        .join();
+        console.log(student_score_order_sorting);
+    }
 }
